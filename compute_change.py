@@ -21,12 +21,11 @@ def nan_windowed_mean_std(data, half_window, robust=True):
         window = data[:, start : end]
         mean[:, i] = np.nanmean(window, axis=1)
         std[:, i] = np.nanstd(window, axis=1)
-        inlier = (window - mean)
     return mean, std
 
 #%%
 
-folder_path = 'data/'
+folder_path = 'DATA/firstdata/'
 files = glob.glob(folder_path + '*.h5')
 
 datas = []
@@ -97,7 +96,7 @@ ax.set_xlabel('Time')
 ax.set_ylabel('Cluster index')
 plt.show()
 
-#%%
+#%% Investigating some outliers
 
 half_window = 5
 mean, std = nan_windowed_mean_std(data_normalized, half_window)
@@ -108,7 +107,8 @@ ax[0].set_title('Windowed mean')
 ax[1].imshow(std[:,3920:3930], vmin=0, vmax=3, aspect='auto', interpolation='none')
 ax[1].set_title('Windowed std')
 ax[2].imshow(data_normalized[:,3920:3930], vmin=-3, vmax=3, aspect='auto', interpolation='none')
-ax[2].set_title('Windowed std')
+ax[2].set_title('Data')
+plt.show()
 
 
 # %%

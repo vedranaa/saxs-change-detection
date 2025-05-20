@@ -54,7 +54,7 @@ def read_folder_data(folder_path):
     return data, rownames
 
 #%%
-path = '/Users/VAND/Desktop/inline/'  # path to folder containing data
+path = 'DATA/inline/'  # path to folder containing data
 
 folders = [ 
         'bobbin 1 overwritten data',

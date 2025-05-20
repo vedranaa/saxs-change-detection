@@ -55,7 +55,7 @@ def folder2video(foldername, videoname, vmax=0.1, sub=False):
     print()
     writer.release()
 
-foldername = '/Users/VAND/Desktop/inline/bobbin2_2s/'
+foldername = 'DATA/inline/bobbin2_2s/'
 videoname = 'bobbin2_2_mean.mp4'
 folder2video(foldername, videoname)
 

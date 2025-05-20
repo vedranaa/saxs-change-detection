@@ -81,7 +81,7 @@ class SubDataNavigator:
         self.ax.set_title(f"Image {self.index + 1}/{self.length}")
         self.fig.canvas.draw() 
 
-foldername = '/Users/VAND/Desktop/inline/bobbin2_2s/'
-#foldername = '/Users/VAND/Desktop/inline/3s_running_yarn_3/'
+foldername = 'DATA/inline/bobbin2_2s/'
+#foldername = 'DATA/inline/3s_running_yarn_3/'
 navigator = DataNavigator(foldername)
 #navigator = SubDataNavigator(foldername)
