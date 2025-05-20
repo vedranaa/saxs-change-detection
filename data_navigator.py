@@ -1,3 +1,6 @@
+'''Opens interactive matplotlib figure. Works well when run as python script 
+(not in a cell mode in VS Code).'''
+
 import h5py
 import hdf5plugin
 import numpy as np

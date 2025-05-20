@@ -1,3 +1,5 @@
+'''Visualizes integration data saved in a folder.'''
+
 #%%
 import h5py
 import numpy as np

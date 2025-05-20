@@ -1,3 +1,5 @@
+'''Initial analysis. This is the first code, and has not been cleaned.'''
+
 #%%
 import h5py
 import numpy as np

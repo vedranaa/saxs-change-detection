@@ -1,5 +1,6 @@
-#%%
+'''Saves images from folder (saved in h5 files) as a video.'''
 
+#%%
 import h5py
 import hdf5plugin
 import cv2
@@ -33,7 +34,9 @@ def image2frame(image, vmax=0.1, i=None, j=None):
             thickness=3)
     return frame
 
-def folder2video(foldername, videoname, vmax=0.1, sub=False):    
+def folder2video(foldername, videoname, vmax=None, sub=False):
+    if vmax is None:
+        vmax = 0.1 if sub else 0.5    
     frame_per_second = 90 if sub else 15
     files = glob.glob(foldername + '*.h5')
     h, w = file2image(files[0]).shape[-2:]
@@ -44,8 +47,8 @@ def folder2video(foldername, videoname, vmax=0.1, sub=False):
         image = file2image(files[i])
         if sub:
             image = file2image(files[i], mean=False)
-            for j in image.shape[0]:
-                frame = image2frame[image[j], vmax, i, j]
+            for j in range(image.shape[0]):
+                frame = image2frame(image[j], vmax, i, j)
                 writer.write(frame)
         else:
             image = file2image(files[i], mean=True)
@@ -55,8 +58,8 @@ def folder2video(foldername, videoname, vmax=0.1, sub=False):
     writer.release()
 
 foldername = 'DATA/inline/bobbin2_2s/'
-videoname = 'OUT/bobbin2_2_mean.mp4'
-folder2video(foldername, videoname)
+videoname = 'OUT/bobbin2_2_sub.mp4'
+folder2video(foldername, videoname, sub=True)
 
  #%%
 
