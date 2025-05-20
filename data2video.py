@@ -39,7 +39,6 @@ def folder2video(foldername, videoname, vmax=0.1, sub=False):
     h, w = file2image(files[0]).shape[-2:]
     fourcc = cv2.VideoWriter_fourcc('m', 'p', '4', 'v')
     writer = cv2.VideoWriter(videoname, fourcc, frame_per_second, (w, h))
-    print()
     for i in range(len(files)):
         print(f'\r{i}/{len(files)}', end='')
         image = file2image(files[i])
@@ -56,7 +55,7 @@ def folder2video(foldername, videoname, vmax=0.1, sub=False):
     writer.release()
 
 foldername = 'DATA/inline/bobbin2_2s/'
-videoname = 'bobbin2_2_mean.mp4'
+videoname = 'OUT/bobbin2_2_mean.mp4'
 folder2video(foldername, videoname)
 
  #%%
