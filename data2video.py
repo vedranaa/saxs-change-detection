@@ -58,6 +58,11 @@ def folder2video(foldername, videoname, vmax=None, sub=False):
     writer.release()
 
 foldername = 'DATA/inline/bobbin2_2s/'
+videoname = 'OUT/bobbin2_2_mean.mp4'
+folder2video(foldername, videoname,)
+
+
+foldername = 'DATA/inline/bobbin2_2s/'
 videoname = 'OUT/bobbin2_2_sub.mp4'
 folder2video(foldername, videoname, sub=True)
 
