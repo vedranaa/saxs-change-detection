@@ -7,4 +7,4 @@ Expects the data to be in the folder `DATA` which contains a folder `inline` tha
 - `data_navigator`, shows data in an interactive figure, where you use keyboard arrows to change the time. Has to be executed as a Python script. You can use two classes:
   - `DataNavigator`, which shows the mean of 10 images from each `.h5` file, or
   - `SubDataNavigator`, which shows each of 10 images - and is lagging a bit when reading a new image.
-
+- `data2video` creates `.mp4` file but without any compression, so this is huge.
