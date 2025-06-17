@@ -27,7 +27,7 @@ def nan_windowed_mean_std(data, half_window, robust=True):
 
 #%%
 
-folder_path = 'DATA/firstdata/'
+folder_path = 'DATA/inline/bobbin2_2s_data/'
 files = glob.glob(folder_path + '*.h5')
 
 datas = []
@@ -81,7 +81,7 @@ valid_indices = valid_indices[~missing_data]
 from sklearn.cluster import KMeans
 
 # Number of clusters
-n_clusters = 6
+n_clusters = 5
 
 # Perform k-means clustering
 kmeans = KMeans(n_clusters=n_clusters, random_state=42, n_init=10)
@@ -97,7 +97,6 @@ ax.set_title('K-Means Clustering of Valid Data')
 ax.set_xlabel('Time')
 ax.set_ylabel('Cluster index')
 plt.show()
-
 #%% Investigating some outliers
 
 half_window = 5
