@@ -47,6 +47,8 @@ print("Combined data shape:", data.shape)
 #ax.set_title(f'Nan ratio {np.isnan(data).sum() / data.size:.2%}')
 
 #%%
+# Show raw data
+
 fig, ax = plt.subplots(figsize=(10, 5))
 ax.imshow(data, aspect='auto', interpolation='none')
 ax.set_title(f'Nan ratio {np.isnan(data).sum() / data.size:.2%}')
@@ -56,6 +58,8 @@ plt.savefig('bobbin_1.png')
 
 
 #%%
+# Normalize every data row
+
 data_normalized = data.copy()
 missing_data = np.any(np.isnan(data_normalized), axis=0)
 remove = np.ones(shape=missing_data.shape)
@@ -66,7 +70,6 @@ std_rows = np.nanstd(data_normalized, axis=1, keepdims=True)
 data_normalized -= mean_rows
 data_normalized /= std_rows
 
-#%%
 fig, ax = plt.subplots(figsize=(20, 10))
 ax.imshow(data_normalized, aspect='auto', vmin=-1.5, vmax=1.5, interpolation='none')
 ax.set_title(f'Nan ratio {np.isnan(data_normalized).sum() / data_normalized.size:.2%}')
@@ -75,6 +78,8 @@ ax.set_ylabel('Fitted values (normalized)')
 plt.savefig('bobbin_1_normalized.png')
 
 #%%
+# K-means clustering, only on time-points where we have all data
+
 valid_data = data_normalized[:, ~missing_data]
 valid_indices = np.arange(data_normalized.shape[1])
 valid_indices = valid_indices[~missing_data]
@@ -113,6 +118,11 @@ plt.show()
 
 
 # %%
+# Down from here, the code has not been tested, and I think
+# something is wrong
+
+#%%
+# Attempt of change detection
 
 dm = mean[:, 2 * half_window:-half_window] - mean[:, half_window:-2 * half_window]
 ms = std[:, 2 * half_window:-half_window] + std[:, half_window:-2 * half_window]
