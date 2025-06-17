@@ -1,4 +1,4 @@
-Code for real-time SAXS change detection.
+Experimental code for real-time SAXS change detection.
 
 Expects the data to be in the folder `DATA` which contains a folder `inline` that I got from Jens, and a folder `firstdata` that I got from Pooja.
 
